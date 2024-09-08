@@ -12,7 +12,7 @@
 Yang di repo ini installnya pake npm bisa diganti pake cdn buka dokumentasi <a href="https://pqina.nl/filepond/" alt="docs filepond">Filepond<a>
 ## Pesan Dava
 
-Heh tod yang di repo ini contoh instalasi di laravel sampe filenya bisa dikirim ke controller jangan tiruin 100% nya dongo & kan dah liat di repo ini cara instalasinya kalo error eksplor sendiri ya.
+Heh tod yang di repo ini contoh instalasi di laravel biar file yang di input ga kosong jangan tiruin 100% nya dongo & kan dah liat di repo ini cara instalasinya kalo error eksplor sendiri ya.
 
 ## About Laravel
 

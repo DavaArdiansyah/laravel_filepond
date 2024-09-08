@@ -9,7 +9,7 @@ class FileUploadController extends Controller
 {
     public function store(Request $request)
     {
-        return ($request);
+        // return ($request);
         // Validasi file
         $request->validate([
             'file' => 'required|file|mimes:jpg,jpeg,png,pdf|max:2048',
@@ -19,7 +19,7 @@ class FileUploadController extends Controller
         $file = $request->file('file');
         $path = $file->store('uploads', 'public');
 
-        return response()->json(['path' => $path], 200);
+        return $path;
     }
 
     public function revert($file)
