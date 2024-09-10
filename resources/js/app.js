@@ -1,60 +1,28 @@
-import * as FilePond from 'filepond';
-import 'filepond/dist/filepond.min.css';
+// // Import FilePond and its plugins
+// import FilePond from 'filepond';
+// import 'filepond/dist/filepond.css'; // Import FilePond styles
+// import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
+// import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'; // Import plugin styles
 
-// Import plugins
-import FilePondPluginFileValidateSize from 'filepond-plugin-file-validate-size';
-import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type';
-import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
-import FilePondPluginImageCrop from 'filepond-plugin-image-crop';
-import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation';
+// // Register the image preview plugin
+// FilePond.registerPlugin(FilePondPluginImagePreview);
 
-// Register plugins
-FilePond.registerPlugin(
-    FilePondPluginFileValidateSize,
-    FilePondPluginFileValidateType,
-    FilePondPluginImagePreview,
-    FilePondPluginImageCrop,
-    FilePondPluginImageExifOrientation
-);
-
-// Ambil CSRF token dari meta tag
-const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
-// Inisialisasi FilePond untuk elemen input
-const inputElement = document.querySelector('input[type="file"]');
-const pond = FilePond.create(inputElement);
-
-// Konfigurasi FilePond
-pond.setOptions({
-    server: {
-        process: {
-            url: '/data-pengguna/alumni/impor/tmp-upload', // URL untuk mengirim data file
-            method: 'POST',
-            headers: {
-                'X-CSRF-TOKEN': csrfToken
-            }
-        },
-        revert: {
-            url: '/revert',  // URL untuk membatalkan upload
-            method: 'POST',
-            headers: {
-                'X-CSRF-TOKEN': csrfToken
-            }
-        },
-        restore: {
-            url: '/restore',// URL untuk melanjutkan upload
-            method: 'POST',
-            headers: {
-                'X-CSRF-TOKEN': csrfToken
-            }
-        },
-        load: {
-            url: '/load',      // URL untuk memuat file yang sudah ada
-            method: 'GET',
-            headers: {
-                'X-CSRF-TOKEN': csrfToken
-            }
-        },
-        fetch: null         // URL untuk mengambil data
-    }
-});
+// // Create a FilePond instance
+// FilePond.create(document.querySelector('input[id="image"]'), {
+//     server: {
+//         process: {
+//             url: '/upload/image', // Adjust URL as needed
+//             method: 'POST',
+//             headers: {
+//                 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+//             },
+//         },
+//         revert: null,
+//         restore: null,
+//         load: null,
+//         fetch: null,
+//     },
+//     allowImagePreview: true,
+//     imagePreviewHeight: 170,
+//     credits: false
+// });
