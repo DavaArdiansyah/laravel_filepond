@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FileUploadController;
+use App\Http\Controllers\ImageUploadController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,10 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('tes');
+    return view('index');
 });
 
-Route::post('/data-pengguna/alumni/impor/tmp-upload', [FileUploadController::class, 'store']);
-Route::post('/revert', [FileUploadController::class, 'revert']);
-Route::post('/restore', [FileUploadController::class, 'restore']);
-Route::get('/load/{file}', [FileUploadController::class, 'load']);
+Route::post('/store-image', [ImageUploadController::class, 'store'])->name('store.image');
+Route::post('/upload-image', [ImageUploadController::class, 'uploadImage'])->name('upload.image');
